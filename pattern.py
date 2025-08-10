@@ -1,4 +1,4 @@
-a = int(input("enter rows: "))
+a = int(input("Enter rows: "))
 
 for i in range(a,0,-1):
     for j in range(i):
