@@ -17,9 +17,9 @@ people = [
     }
 ]
 
-def printProperty():
+def printProperty(propertyName):
     for i in people:
-        print(i["name"])
+        print(i[propertyName])
 
 
 def appendToPeople(people_dict):
@@ -37,7 +37,8 @@ def addKey(dict,key,value):
     dict[key] = value
 
 
-printProperty()
+printProperty("city")
+printProperty("age")
 # addKeyUsingForLoop(people,"email","ffkdjflofhdof@kf.com")
 # print("\n")
 # appendToPeople(people)
