@@ -53,7 +53,7 @@ def add_marks():
         marks = int(input(f"Enter marks for {sub["name"]}: "))
         student["marks"][sub["name"]] = marks
     
-    print("marks added!")
+    print("\n Marks added!")
 
     
 
