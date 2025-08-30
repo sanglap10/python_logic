@@ -12,16 +12,16 @@ def get_itmes():
     return arr
 
 def print_bill(customer_name,items):
-    print(f"Hello {customer_name}, here's your bill: ")
+    print(f"\nHello {customer_name}, here's your bill: ")
     print("Item Name        Price")
     print("--------------------------------------")
 
     total = 0
     for item in items:
-        print(f"{item[0]}       {item[1]}")
+        print(f"{item[0]:15}       {item[1]}")
         total = total + item[1]
         print("-----------------------------------")
-    print(f"Total:     {total} ")
+    print(f"Total:           {total} ")
 
 
 def main():
