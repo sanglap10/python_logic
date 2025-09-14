@@ -11,8 +11,8 @@ def get_itmes():
         arr.append((item_name,item_price))
     return arr
 
-def print_bill(customer_name,items):
-    print(f"\nHello {customer_name}, here's your bill: ")
+def print_bill(name,items):
+    print(f"\nHello {name}, here's your bill: ")
     print("Item Name        Price")
     print("--------------------------------------")
 
@@ -23,10 +23,27 @@ def print_bill(customer_name,items):
         print("-----------------------------------")
     print(f"Total:           {total} ")
 
+    discount_amount = discount(total)
+    print(f"Discount:        {discount_amount}")
+
+    
+def discount(bill_amount):
+    discount = 0
+    if bill_amount > 1000:
+        discount = 0.1 * bill_amount
+    elif bill_amount > 500:
+        discount = 0.05 * bill_amount
+    elif bill_amount > 200:
+        discount = 0.02 * bill_amount
+    else:
+        discount = 0
+    return discount
+
 
 def main():
     cust_name = get_customer_name()
     items = get_itmes()
     print_bill(cust_name,items)
+    less = discount()
 
 main()

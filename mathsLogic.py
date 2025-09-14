@@ -51,47 +51,62 @@ def sum_of_numbers_formula(number):
 def factorial_of_numbers(number):
     fact = 1
     values = []
-    for i in range(number,0,-1):
+    for i in range(1,number+1):
+        z = number - i + 1 
+
         fact *= i
-        values.append(str(i))
+        values.append(str(z))
     exps = " * ".join(values)
+    print(f"{exps} = {fact}")
+
+
+def factorial_while(number):
+    fact = 1
+    num = []
+    i = 1
+    while i <= number:
+        fact = fact * i
+        z = number - i + 1
+        num.append(str(z))
+        i = i + 1
+    exps = " * ".join(num)
     print(f"{exps} = {fact}")
 
 
 def main():
     while True:
-        print("Enter 1 for fibonacci series")
-        print("Enter 2 for find prime numbers")
-        print("Enter 3 for sum of numbers")
-        print("Enter 4 for sum of numbers while")
-        print("Enter 5 for sum of numbers whitout loop")
-        print("Enter 6 for factorial")
-
+        print("Enter a choice 1 - 8")
+        print("1. Fibonacci series")
+        print("2. Prime numbers")
+        print("3.  Sum of numbers")
+        print("4. Sum of numbers using while loop")
+        print("5. Sum of numbers whitout loop")
+        print("6. Factorial of number")
+        print("7. Factorial of number using while loop")
+        print("8. Exit")
         choice = int(input("Enter choice: "))
-
-        if choice == 7:
-            break
         number = int(input("Enter number: "))
 
-        if choice == 1:
-            fibonacci_series(number)
-            print(f"")
-        elif choice == 2:
-            if prime_number(number):
-                print(f"{number} is prime number")
-            else:
-                print(f"{number} is not prime")
-        elif choice == 3:
-            sum_of_numbers(sum)
-        elif choice == 4:
-            sum_of_numbers_while(number)
-        elif choice == 5:
-            sum_of_numbers_formula(number)
-        elif choice == 6:
-            factorial_of_numbers(number)
-        else:
-            print("Invalid")
-    
+        match choice:
+            case 1:
+                fibonacci_series(number)
+            case 2:
+                if prime_number(number):
+                    print(f"{number} is prime number")
+                else:
+                    print(f"{number} is not prime")
+            case 3:
+                sum_of_numbers(sum)
+            case 4:
+                sum_of_numbers_while(number)
+            case 5:
+                sum_of_numbers_formula(number)
+            case 6:
+                factorial_of_numbers(number)
+            case 7:
+                factorial_while(number)
+            case 8:
+                break
 main()
         
         
