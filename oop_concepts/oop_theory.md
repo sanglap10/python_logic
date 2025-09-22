@@ -1,74 +1,99 @@
-# Object Oreinted Programing OOP
+# Object-Oriented Programming (OOP)
 
-## Classes and functions
+## Overview
+Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects," which can contain data (attributes) and behavior (methods).
 
-### MOBILE 
-    DATA (attributes)  - model, brand, price, battery capacity, RAM, storage, networkProvider
-    BEHAVIOUR (methods/function) - makeCall(), sendMessage(), charge(), playGame()
+### Example: Mobile Phone
+#### Attributes (Data):
+- Model
+- Brand
+- Price
+- Battery Capacity
+- RAM
+- Storage
+- Network Provider
 
-    makeCall(networkProvider) -> FUNCTION
-    {
-        airtel -> DATA
-        joi -> DATA
+#### Behavior (Methods/Functions):
+- `makeCall()`
+- `sendMessage()`
+- `charge()`
+- `playGame()`
+
+#### Example Method:
+```java
+// Function to demonstrate making a call
+makeCall(networkProvider) {
+    if (networkProvider === 'airtel') {
+        // Airtel specific behavior
+    } else if (networkProvider === 'jio') {
+        // Jio specific behavior
     }
+}
+```
 
+---
 
-## 4 principles/pillars of OOPS
+## Four Pillars of OOP
+1. **Encapsulation**
+   - Hiding internal details and exposing only necessary functionalities.
+2. **Abstraction**
+   - Hiding implementation details and showing only essential features.
+3. **Inheritance**
+   - Reusing and extending features of an existing class.
+4. **Polymorphism**
+   - Designing objects to share behaviors, allowing one interface to be used for a general class of actions.
 
- 1. Encapsulation
- 2. Abstraction
- 3. Inheritance
- 4. Polymorphism 
- 
+---
 
-# Encapsulation - 
-    Data hide [amazon app customer can not change the amount of a product but seller can]
-    access control - 
-                PUBLIC
-                PRIVATE 
-                PROTECTED
+## Encapsulation
+Encapsulation ensures that sensitive data is hidden from users and can only be accessed through specific methods. It uses **access control modifiers**:
+- **Public**: Accessible from anywhere.
+- **Private**: Accessible only within the class.
+- **Protected**: Accessible within the class and its subclasses.
 
-    public class SamsungS25
-    {
-        // class variables
-        float price;
-        int ram;
-        int storage;
-        string networkProvider;
+### Example: Encapsulation in a Mobile Class
+```java
+public class SamsungS25 {
+    // Class variables (attributes)
+    private float price;
+    private int ram;
+    private int storage;
+    private String networkProvider;
 
-        // PUBLIC METHOD
-        public bool makeCall(networkProvider)
-        {
-            if(networkProvider != '')
-            {
-                return true;
-            }
-            return false;
+    // Public method (behavior)
+    public boolean makeCall(String networkProvider) {
+        if (networkProvider != null && !networkProvider.isEmpty()) {
+            return true;
         }
+        return false;
+    }
 
-        // PRIVATE METHOD
-        private savePhotos(storage)
-        {
-            if(storage > 1)
-            {
-                return true;
-            }
-            return false;
+    // Private method
+    private boolean savePhotos(int storage) {
+        if (storage > 1) {
+            return true;
         }
+        return false;
     }
+}
+```
 
-    public class iPhone13
-    {
-        // class variables
-        float price;
-        int ram;
-        int storage;
-        string networkProvider;
-
-        SamsungS25.makeCall(networkProvider);
-        SamsungS25.savePhotos(storage); // ERROR !!
-
+### Example: Encapsulation Access Error
+```java
+public class iPhone13 {
+    public void exampleUsage() {
+        SamsungS25 samsung = new SamsungS25();
+        samsung.makeCall("Jio"); // Allowed
+        samsung.savePhotos(5);   // ERROR: savePhotos is private and cannot be accessed
     }
+}
+```
 
+**Key Takeaway**: Encapsulation protects data and ensures controlled access through public methods.
 
-# Abstraction
+---
+
+## Abstraction
+Abstraction focuses on exposing only the essential features of an object while hiding the implementation details. For example, a "Mobile" class might expose methods like `makeCall()` and `sendMessage()` but hide how these methods are implemented internally.
+
+---
