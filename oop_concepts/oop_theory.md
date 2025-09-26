@@ -96,4 +96,48 @@ public class iPhone13 {
 ## Abstraction
 Abstraction focuses on exposing only the essential features of an object while hiding the implementation details. For example, a "Mobile" class might expose methods like `makeCall()` and `sendMessage()` but hide how these methods are implemented internally.
 
+### Example: Abstraction using C# Interface
+
+```csharp
+// This example demonstrates abstraction using interfaces and classes.
+// Abstraction allows us to define generic operations (like payment) without specifying the exact implementation.
+// Different payment apps (PhonePe, GooglePay) implement the same payment interface in their own way.
+
+public interface IUPI
+{
+    void Pay(float amount);
+}
+
+public class PhonePe : IUPI
+{
+    public void Pay(float amount)
+    {
+        Console.WriteLine($"Processing payment of {amount} via PhonePe...");
+        Console.WriteLine("Payment successful!");
+    }
+}
+
+public class GooglePay : IUPI
+{
+    public void Pay(float amount)
+    {
+        Console.WriteLine($"Processing payment of {amount} via GooglePay...");
+        Console.WriteLine("Payment successful!");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        IUPI upiAbstraction;
+
+        upiAbstraction = new PhonePe();
+        upiAbstraction.Pay(500);
+
+        upiAbstraction = new GooglePay();
+        upiAbstraction.Pay(1000);
+    }
+}
+
 ---
