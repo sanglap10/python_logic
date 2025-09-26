@@ -1,0 +1,1 @@
+Console.WriteLine("This is an example of abstraction.");
