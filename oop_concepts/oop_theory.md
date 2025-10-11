@@ -139,71 +139,110 @@ public class Program
         upiAbstraction.Pay(1000);
     }
 }
+```
+
+**Key Takeaway**: Abstraction hides complex logic and allows programmers to work with simplified interfaces.
 
 ---
 
 ## Inheritance
+Inheritance allows a **child class (subclass)** to acquire properties and behaviors from a **parent class (superclass)**.  
+It helps in:
+- **Code reusability** — eliminating duplicate code.  
+- **Extensibility** — enhancing or modifying existing functionality.  
+- **Maintainability** — improving code structure and readability.
 
-Inheritance is a way to create a new class that reuses, extends, or modifies the features of an existing class. The new class is called a "child" or "subclass," and the existing class is known as a "parent" or "superclass." This helps avoid code duplication and makes programs easier to maintain.
+---
 
-### Example: Phone Inheritance
-
-Suppose you have a generic "Phone" class with basic features. You can create a new class, like "SmartPhone," that inherits from "Phone" and adds extra features.
+### Example: Vehicle → Car Inheritance
 
 #### C# Example
-
 ```csharp
-// Parent class
-public class Phone
+// Parent class (Base)
+public class Vehicle
 {
-    public string Brand;
-    public void MakeCall(string number)
+    public string Brand { get; set; }
+
+    public Vehicle(string brand)
     {
-        Console.WriteLine($"Calling {number} from {Brand} phone.");
+        Brand = brand;
+    }
+
+    public void Start()
+    {
+        Console.WriteLine($"{Brand} vehicle is starting.");
     }
 }
 
-// Child class
-public class SmartPhone : Phone
+// Child class (Derived)
+public class Car : Vehicle
 {
-    public void BrowseInternet()
+    public string Model { get; set; }
+
+    // Call parent constructor using base()
+    public Car(string brand, string model) : base(brand)
     {
-        Console.WriteLine("Browsing internet...");
+        Model = model;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"This is a {Brand} {Model} car.");
     }
 }
 
 // Usage
-SmartPhone myPhone = new SmartPhone();
-myPhone.Brand = "Samsung";
-myPhone.MakeCall("1234567890"); // Inherited from Phone class
-myPhone.BrowseInternet();       // Defined in SmartPhone class
+public class Program
+{
+    public static void Main()
+    {
+        Car car1 = new Car("Toyota", "Camry");
+        car1.Start();      // Inherited from Vehicle
+        car1.Display();    // Defined in Car
+    }
+}
 ```
 
 #### Java Example
-
 ```java
-// Parent class
-class Phone {
+// Parent class (Base)
+class Vehicle {
     String brand;
-    void makeCall(String number) {
-        System.out.println("Calling " + number + " from " + brand + " phone.");
+
+    Vehicle(String brand) {
+        this.brand = brand;
+    }
+
+    void start() {
+        System.out.println(brand + " vehicle is starting.");
     }
 }
 
-// Child class
-class SmartPhone extends Phone {
-    void browseInternet() {
-        System.out.println("Browsing internet...");
+// Child class (Derived)
+class Car extends Vehicle {
+    String model;
+
+    Car(String brand, String model) {
+        super(brand); // Call parent constructor
+        this.model = model;
+    }
+
+    void display() {
+        System.out.println("This is a " + brand + " " + model + " car.");
     }
 }
 
 // Usage
-SmartPhone myPhone = new SmartPhone();
-myPhone.brand = "Samsung";
-myPhone.makeCall("1234567890"); // Inherited from Phone class
-myPhone.browseInternet();       // Defined in SmartPhone class
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("Toyota", "Camry");
+        car1.start();      // Inherited from Vehicle
+        car1.display();    // Defined in Car
+    }
+}
 ```
 
-**Key Takeaway**: Inheritance lets you build new classes on top of existing ones, saving time and reducing code repetition.
+**Key Takeaway**:  
+Inheritance enables code reuse and the creation of hierarchical class structures, allowing child classes to inherit, extend, or override the functionality of parent classes.
 
 ---
