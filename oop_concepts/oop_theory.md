@@ -210,51 +210,6 @@ public class Program
 }
 ```
 
-#### Java Example
-```java
-// Parent class (Base)
-class Vehicle {
-    void start() {
-        System.out.println("Vehicle is starting...");
-    }
-
-    void stop() {
-        System.out.println("Vehicle has stopped.");
-    }
-}
-
-// Child class 1
-class Car extends Vehicle {
-    void playMusic() {
-        System.out.println("Playing music inside the car...");
-    }
-}
-
-// Child class 2
-class Motorcycle extends Vehicle {
-    void kickStart() {
-        System.out.println("Motorcycle started with a kick start...");
-    }
-}
-
-// Usage
-public class Main {
-    public static void main(String[] args) {
-        Car car = new Car();
-        car.start();
-        car.playMusic();
-        car.stop();
-
-        System.out.println("-------------------");
-
-        Motorcycle bike = new Motorcycle();
-        bike.start();
-        bike.kickStart();
-        bike.stop();
-    }
-}
-```
-
 **Key Takeaway**:  
 Inheritance enables code reuse and hierarchical structure, allowing multiple subclasses to share a common base class.
 
@@ -309,43 +264,6 @@ public class Program
 
         myCar.Start();   // Calls Car's version
         myBike.Start();  // Calls Motorcycle's version
-    }
-}
-```
-
-#### Java Example
-```java
-// Parent class
-class Vehicle {
-    void start() {
-        System.out.println("Vehicle is starting...");
-    }
-}
-
-// Child class 1
-class Car extends Vehicle {
-    @Override
-    void start() {
-        System.out.println("Car is starting with key ignition...");
-    }
-}
-
-// Child class 2
-class Motorcycle extends Vehicle {
-    @Override
-    void start() {
-        System.out.println("Motorcycle is starting with a self start button...");
-    }
-}
-
-// Usage
-public class Main {
-    public static void main(String[] args) {
-        Vehicle myCar = new Car();
-        Vehicle myBike = new Motorcycle();
-
-        myCar.start();   // Calls Car's version
-        myBike.start();  // Calls Motorcycle's version
     }
 }
 ```
