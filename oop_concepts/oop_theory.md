@@ -154,7 +154,7 @@ It helps in:
 
 ---
 
-### Example: Vehicle → Car Inheritance
+### Example: Vehicle → Car & Motorcycle (Hierarchical Inheritance)
 
 #### C# Example
 ```csharp
@@ -196,31 +196,161 @@ public class Program
     public static void Main()
     {
         Car car = new Car();
-        car.Start();        // Inherited from Vehicle
-        car.PlayMusic();    // Defined in Car
-        car.Stop();         // Inherited from Vehicle
+        car.Start();
+        car.PlayMusic();
+        car.Stop();
 
         Console.WriteLine("-------------------");
 
         Motorcycle bike = new Motorcycle();
-        bike.Start();       // Inherited from Vehicle
-        bike.KickStart();   // Defined in Motorcycle
-        bike.Stop();        // Inherited from Vehicle
+        bike.Start();
+        bike.KickStart();
+        bike.Stop();
+    }
+}
+```
+
+#### Java Example
+```java
+// Parent class (Base)
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle is starting...");
+    }
+
+    void stop() {
+        System.out.println("Vehicle has stopped.");
     }
 }
 
-OUTPUY - 
-Vehicle is starting...
-Playing music inside the car...
-Vehicle has stopped.
--------------------
-Vehicle is starting...
-Motorcycle started with a kick start...
-Vehicle has stopped.
+// Child class 1
+class Car extends Vehicle {
+    void playMusic() {
+        System.out.println("Playing music inside the car...");
+    }
+}
+
+// Child class 2
+class Motorcycle extends Vehicle {
+    void kickStart() {
+        System.out.println("Motorcycle started with a kick start...");
+    }
+}
+
+// Usage
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();
+        car.playMusic();
+        car.stop();
+
+        System.out.println("-------------------");
+
+        Motorcycle bike = new Motorcycle();
+        bike.start();
+        bike.kickStart();
+        bike.stop();
+    }
+}
 ```
 
+**Key Takeaway**:  
+Inheritance enables code reuse and hierarchical structure, allowing multiple subclasses to share a common base class.
+
+---
+
+## Polymorphism
+
+**Polymorphism** means **"many forms"** — it allows the **same method name** to behave **differently** depending on which object is calling it.
+
+A parent class defines a method, and child classes can **override** it to provide their own specific behavior.
+
+---
+
+### Example: Vehicle → Car → Motorcycle
+
+#### C# Example
+```csharp
+// Parent class
+public class Vehicle
+{
+    public virtual void Start()
+    {
+        Console.WriteLine("Vehicle is starting...");
+    }
+}
+
+// Child class 1
+public class Car : Vehicle
+{
+    public override void Start()
+    {
+        Console.WriteLine("Car is starting with key ignition...");
+    }
+}
+
+// Child class 2
+public class Motorcycle : Vehicle
+{
+    public override void Start()
+    {
+        Console.WriteLine("Motorcycle is starting with a self start button...");
+    }
+}
+
+// Usage
+public class Program
+{
+    public static void Main()
+    {
+        Vehicle myCar = new Car();
+        Vehicle myBike = new Motorcycle();
+
+        myCar.Start();   // Calls Car's version
+        myBike.Start();  // Calls Motorcycle's version
+    }
+}
+```
+
+#### Java Example
+```java
+// Parent class
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle is starting...");
+    }
+}
+
+// Child class 1
+class Car extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Car is starting with key ignition...");
+    }
+}
+
+// Child class 2
+class Motorcycle extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Motorcycle is starting with a self start button...");
+    }
+}
+
+// Usage
+public class Main {
+    public static void main(String[] args) {
+        Vehicle myCar = new Car();
+        Vehicle myBike = new Motorcycle();
+
+        myCar.start();   // Calls Car's version
+        myBike.start();  // Calls Motorcycle's version
+    }
+}
+```
 
 **Key Takeaway**:  
-Inheritance enables code reuse and the creation of hierarchical class structures, allowing child classes to inherit, extend, or override the functionality of parent classes.
+Polymorphism allows methods to take on different forms based on the object that calls them, making code flexible, reusable, and extensible.
 
 ---
