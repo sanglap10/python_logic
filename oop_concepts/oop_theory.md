@@ -268,6 +268,11 @@ public class Program
 }
 ```
 
+OUTPUT -
+Car is starting with key ignition...
+Motorcycle is starting with a self start button...
+
+
 **Key Takeaway**:  
 Polymorphism allows methods to take on different forms based on the object that calls them, making code flexible, reusable, and extensible.
 
