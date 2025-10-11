@@ -103,6 +103,17 @@ Abstraction focuses on exposing only the essential features of an object while h
 // Abstraction allows us to define generic operations (like payment) without specifying the exact implementation.
 // Different payment apps (PhonePe, GooglePay) implement the same payment interface in their own way.
 
+public class UPI : IUPI
+{
+    public void Pay(float amount)
+    {
+        if(amount > 0 )
+        {
+            // do payment
+        }
+    }
+}
+
 public interface IUPI
 {
     void Pay(float amount);
