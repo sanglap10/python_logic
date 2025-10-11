@@ -161,33 +161,32 @@ It helps in:
 // Parent class (Base)
 public class Vehicle
 {
-    public string Brand { get; set; }
-
-    public Vehicle(string brand)
-    {
-        Brand = brand;
-    }
-
     public void Start()
     {
-        Console.WriteLine($"{Brand} vehicle is starting.");
+        Console.WriteLine("Vehicle is starting...");
+    }
+
+    public void Stop()
+    {
+        Console.WriteLine("Vehicle has stopped.");
     }
 }
 
-// Child class (Derived)
+// Child class 1
 public class Car : Vehicle
 {
-    public string Model { get; set; }
-
-    // Call parent constructor using base()
-    public Car(string brand, string model) : base(brand)
+    public void PlayMusic()
     {
-        Model = model;
+        Console.WriteLine("Playing music inside the car...");
     }
+}
 
-    public void Display()
+// Child class 2
+public class Motorcycle : Vehicle
+{
+    public void KickStart()
     {
-        Console.WriteLine($"This is a {Brand} {Model} car.");
+        Console.WriteLine("Motorcycle started with a kick start...");
     }
 }
 
@@ -196,51 +195,30 @@ public class Program
 {
     public static void Main()
     {
-        Car car1 = new Car("Toyota", "Camry");
-        car1.Start();      // Inherited from Vehicle
-        car1.Display();    // Defined in Car
+        Car car = new Car();
+        car.Start();        // Inherited from Vehicle
+        car.PlayMusic();    // Defined in Car
+        car.Stop();         // Inherited from Vehicle
+
+        Console.WriteLine("-------------------");
+
+        Motorcycle bike = new Motorcycle();
+        bike.Start();       // Inherited from Vehicle
+        bike.KickStart();   // Defined in Motorcycle
+        bike.Stop();        // Inherited from Vehicle
     }
 }
+
+OUTPUY - 
+Vehicle is starting...
+Playing music inside the car...
+Vehicle has stopped.
+-------------------
+Vehicle is starting...
+Motorcycle started with a kick start...
+Vehicle has stopped.
 ```
 
-#### Java Example
-```java
-// Parent class (Base)
-class Vehicle {
-    String brand;
-
-    Vehicle(String brand) {
-        this.brand = brand;
-    }
-
-    void start() {
-        System.out.println(brand + " vehicle is starting.");
-    }
-}
-
-// Child class (Derived)
-class Car extends Vehicle {
-    String model;
-
-    Car(String brand, String model) {
-        super(brand); // Call parent constructor
-        this.model = model;
-    }
-
-    void display() {
-        System.out.println("This is a " + brand + " " + model + " car.");
-    }
-}
-
-// Usage
-public class Main {
-    public static void main(String[] args) {
-        Car car1 = new Car("Toyota", "Camry");
-        car1.start();      // Inherited from Vehicle
-        car1.display();    // Defined in Car
-    }
-}
-```
 
 **Key Takeaway**:  
 Inheritance enables code reuse and the creation of hierarchical class structures, allowing child classes to inherit, extend, or override the functionality of parent classes.
